@@ -1,0 +1,86 @@
+$ mkdir tmp ; cd tmp ; pwd
+/home/antonio/htl/nscs/tmp
+$ ls -a
+
+$ date=1.3.2010
+
+$ echo      $date
+1.3.2010
+$ echo '     $date'
+     $date
+$ echo "     $date"
+     1.3.2010
+$ echo "     `date`"
+     Tue Oct  8 09:24:07 AM CEST 2024
+$ echo "     $(date)"
+     Tue Oct  8 09:24:14 AM CEST 2024
+$ echo '     `date`'
+     `date`
+$ echo = 14
+ = 14
+$ echo=14+3
+
+$ echo $echo
+14+3
+$ expr 14+3 ; expr 14 + 3
+14+3
+17
+$ b="expr 14 + 3" ; echo $b
+expr 14 + 3
+$ b=$(expr 14 + 3) ; echo $b
+17
+$ test b=14 && echo b
+b
+$ test b = 17 && echo b
+
+$ test $b = 17 && echo "b: $b"
+b: 17
+$ if $b = 17; then echo ok; fi
+17: command not found
+$ if test $b = 17; then echo ok; fi
+ok
+$ b=$(expr $b + 1) ; echo $b
+18
+$ while true; do echo . ;sleep 1; done
+.
+.
+.
+.
+.
+.
+$ echo World | tr a-z A-Z
+WORLD
+$ echo World | cut -c3-4
+rl
+$ touch main.c func.c ; echo *.c
+func.c main.c
+$ for i in *.c;do echo $i;done
+func.c
+main.c
+$ for i in a1 b2;do echo $i;done
+a1
+b2
+$ touch b1 b2 b3 b21 b30 b31 b40 be
+
+$ echo b*
+b1 b2 b21 b3 b30 b31 b40 be
+$ echo b[0-9]
+b1 b2 b3
+$ echo b[3-9][0-9]
+b30 b31 b40
+$ echo 'b[0-9]'
+b[0-9]
+$ y=`echo Rhein|tr a-z A-Z`
+
+$ y1="echo Rhein|tr a-z A-Z"
+
+$ echo "\$y $y $y1"
+$y RHEIN echo Rhein|tr a-z A-Z
+$ echo '\$y $y $y1'
+\$y $y $y1
+$ true ; echo $?
+0
+$ echo Donau|cut -c2-3
+on
+$ z=$(date) ; echo "Aktuelle Uhrzeit: $z"
+Aktuelle Uhrzeit: Tue Oct  8 09:28:54 AM CEST 2024
